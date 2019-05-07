@@ -1,0 +1,23 @@
+```
+ProSQL in grafana
+```
+# NotReady
+sum(kube_node_status_condition{condition="Ready",status="unknown",node=~"$node"})
+
+# unschedulable
+sum(kube_node_spec_unschedulable{node=~"$node"})
+
+# Nums Of Nodes 
+sum(kube_node_info{node=~"$node"})
+
+# Kubelet Version Status
+sum(kube_node_info{node=~"$node"}) by (kubelet_version)
+
+# Docker Version Status
+sum(kube_node_info{node=~"$node"}) by (container_runtime_version)
+
+# Kernel Version Status
+sum(kube_node_info{node=~"$node"}) by (kernel_version)
+
+# K8s Node Status
+(kube_node_status_condition{condition="Ready",status="unknown",node=~"$node"}) * on(node) group_right() (sum(kube_node_labels) by (label_cloud_ctrip_com_role,node)*on(node) group_right(label_cloud_ctrip_com_role) sum(kube_node_info{container_runtime_version=~"$docker_version",kernel_version=~"$kernel_version",kubelet_version=~"$kubelet_version"}) by (container_runtime_version,kernel_version,kubelet_version,node))
