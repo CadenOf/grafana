@@ -2,7 +2,7 @@
 share some cases of monitoring dadadada....
 ## prometheus-node_exporter
 about monitoring node metrics.
-
+![](node_exporter.png)
 ## kubernetes-nodes  
 about kubernetes nodes monitoring dashboard.
 #### k8s-node-status
