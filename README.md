@@ -1,7 +1,7 @@
 # grafana
 share some cases of monitoring dadadada....
 ## prometheus-node_exporter
-about monitoring node metrics.
+about monitoring node metrics status.
 ![](node_exporter.png)
 ## kubernetes-nodes  
 about kubernetes nodes monitoring dashboard.
